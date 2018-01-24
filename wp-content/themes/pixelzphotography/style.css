@@ -1,14 +1,14 @@
 /*!
 Theme Name: PixelzPhotography
-Theme URI: http://underscores.me/
+Theme URI: http://github.com/pixelzphotography/PixelzPhotography/
 Author: Simon Teh
-Author URI: http://underscores.me/
+Author URI:
 Description: Create pixel perfect memories
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: pixelzphotography
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -266,9 +266,21 @@ optgroup,
 textarea {
 	color: #404040;
 	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1rem;
+	font-size: 18px;
+	font-size: 1.125rem;
 	line-height: 1.5;
+}
+
+@media screen and (min-width: 700px) {
+	body,
+	button,
+	input,
+	select,
+	optgroup,
+	textarea {
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -294,8 +306,8 @@ address {
 pre {
 	background: #eee;
 	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
-	font-size: 0.9375rem;
+	font-size: 18.75px;
+	font-size: 1.17188rem;
 	line-height: 1.6;
 	margin-bottom: 1.6em;
 	max-width: 100%;
@@ -305,8 +317,8 @@ pre {
 
 code, kbd, tt, var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 15px;
-	font-size: 0.9375rem;
+	font-size: 18.75px;
+	font-size: 1.17188rem;
 }
 
 abbr, acronym {
@@ -383,7 +395,7 @@ img {
 }
 
 figure {
-	margin: 1em 0;
+	margin: 0;
 	/* Extra wide images within figure tags don't overflow the content area. */
 }
 
@@ -404,8 +416,8 @@ input[type="submit"] {
 	border-radius: 3px;
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
-	font-size: 12px;
-	font-size: 0.75rem;
+	font-size: 15px;
+	font-size: 0.9375rem;
 	line-height: 1;
 	padding: .6em 1em .4em;
 }
@@ -601,14 +613,16 @@ a:hover, a:active {
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
+	-webkit-clip-path: inset(50%);
+	        clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
 	padding: 0;
 	position: absolute !important;
 	width: 1px;
-	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+	word-wrap: normal !important;
+	/* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
 
 .screen-reader-text:focus {
@@ -616,11 +630,12 @@ a:hover, a:active {
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
-	clip-path: none;
+	-webkit-clip-path: none;
+	        clip-path: none;
 	color: #21759b;
 	display: block;
-	font-size: 14px;
-	font-size: 0.875rem;
+	font-size: 17.5px;
+	font-size: 1.09375rem;
 	font-weight: bold;
 	height: auto;
 	left: 5px;
@@ -690,20 +705,91 @@ a:hover, a:active {
 }
 
 /*--------------------------------------------------------------
-# Widgets
+# Content
 --------------------------------------------------------------*/
-.widget {
-	margin: 0 0 1.5em;
-	/* Make sure select elements fit in widgets. */
+/*--------------------------------------------------------------
+## Global layouts
+--------------------------------------------------------------*/
+.site-content {
+	padding: 1em;
 }
 
-.widget select {
-	max-width: 100%;
+@media screen and (min-width: 600px) {
+	.site-content {
+		padding: 2em;
+	}
 }
 
 /*--------------------------------------------------------------
-# Content
+## Header
 --------------------------------------------------------------*/
+.header-image {
+	max-height: 60vh;
+}
+
+.header-image img {
+	display: block;
+	width: 100vw;
+}
+
+.site-header {
+	position: relative;
+	padding: 1em;
+	font-family: "Kavivanar", cursive;
+	color: #fff;
+	background-color: transparent;
+}
+
+@media screen and (min-width: 600px) {
+	.site-header {
+		padding: 1em 2em;
+	}
+}
+
+.site-branding {
+	min-height: 65px;
+}
+
+.site-title {
+	margin: 0;
+	padding: 0;
+	font-weight: 900;
+	line-height: 1em;
+}
+
+.site-title a {
+	color: white;
+	text-decoration: none;
+}
+
+.site-title a:hover, .site-title a:focus {
+	text-decoration: underline;
+}
+
+.site-description {
+	margin: 0;
+	font-size: .7em;
+	font-style: italic;
+	font-weight: 100;
+}
+
+@media screen and (min-width: 900px) {
+	.site-header {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+	}
+	.site-branding {
+		width: 35%;
+	}
+	.site-navigation {
+		width: 55%;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -739,6 +825,18 @@ a:hover, a:active {
 
 .bypostauthor {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -851,3 +949,5 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+/*# sourceMappingURL=../pixelzphotography/sass/maps/style.css.map */
